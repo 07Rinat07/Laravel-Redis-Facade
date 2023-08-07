@@ -27,5 +27,11 @@ class RedisTestCommand extends Command
     public function handle()
     {
        Cache::put('example', 'my_string');
+       $str = Cache::get('example');
+       Cache::put('example', $str . ' new'); // update info
+       Cache::forget('example'); //clean-delete all
+       $str = Cache::get('example');
+
+       dd($str);
     }
 }
