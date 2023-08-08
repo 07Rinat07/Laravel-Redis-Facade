@@ -23,3 +23,5 @@
 * Create a DB (in the .env file and the database, enter the correct data for configuration)
 * php artisan migrate
 * In the application, go to .env and make changes (on line 14 from CACHE_DRIVER=file to this --> CACHE_DRIVER=redis
+#### Attention! To reset the cache in the browser in order to avoid out-of-date information, use the command ---> 
+* php artisan optimize:clear
