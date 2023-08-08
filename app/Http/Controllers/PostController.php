@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Post;
+use Illuminate\Support\Facades\Cache;
 
 class PostController extends Controller
 {
     public function index()
     {
-        dd(1111111111111);
+        $posts = Cache::rememberForever('posts:all', function () {
+            return Post::all();
+        });
+        dd($posts->pluck('title'));
     }
 }
