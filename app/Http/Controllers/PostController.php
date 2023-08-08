@@ -14,4 +14,12 @@ class PostController extends Controller
         });
         dd($posts->pluck('title'));
     }
+
+    public function show($id)
+    {
+        $posts = Cache::get('posts:' . $id);
+        dd($posts->title);
+    }
+
+
 }
